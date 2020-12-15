@@ -26,6 +26,7 @@ router.post('/',  async (req, res) => {
         name: req.body.name,
         email: req.body.email,
         phone: req.body.phone,
+        type: req.body.type || 'customer',
         password: bcrypt.hashSync(req.body.password, 10)
     });
 
