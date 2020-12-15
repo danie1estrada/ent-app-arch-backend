@@ -46,7 +46,8 @@ router.put('/', async (req, res) => {
             {
                 name: req.body.name,
                 email: req.body.email,
-                phone: req.body.phone
+                phone: req.body.phone,
+                type: req.body.type
             }
         );
         res.json({

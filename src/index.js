@@ -12,10 +12,6 @@ app.get('/', (req, res) => {
     res.send('Application running...');
 });
 
-app.get('/secret', (req, res) => {
-    res.send(process.env.SECRET || 'Gomita no está');
-});
-
 mongoose.connect(
     'mongodb+srv://root:admin123@enterprise-applications.x4yvh.mongodb.net/enterprise-applications-architecture?retryWrites=true&w=majority',
     { useNewUrlParser: true, useUnifiedTopology: true, useCreateIndex: true },
