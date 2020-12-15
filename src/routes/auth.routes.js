@@ -33,7 +33,7 @@ router.post('/login', (req, res) => {
 
         const accessToken = jwt.sign({
             authenticatedUser
-        }, 'gomita');
+        }, process.env.SECRET);
 
         return res.json({
             accessToken,
@@ -56,7 +56,7 @@ router.post('/signup', async (req, res) => {
 
         const accessToken = jwt.sign({
             authenticatedUser
-        }, 'gomita');
+        }, process.env.SECRET);
 
         res.json({
             accessToken,

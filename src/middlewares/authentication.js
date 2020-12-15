@@ -1,7 +1,7 @@
 const jwt = require('jsonwebtoken');
 
 const validateToken = (req, res, next) => {
-    jwt.verify(req.get('Authorization'), 'gomita', (err, decoded) => {
+    jwt.verify(req.get('Authorization'), process.env.SECRET, (err, decoded) => {
         if (err) return res.status(403).json({
             success: false,
             message: 'Forbiden'
