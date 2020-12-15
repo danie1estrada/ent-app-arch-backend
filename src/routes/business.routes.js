@@ -31,7 +31,8 @@ router.post('/',  async (req, res) => {
         description: req.body.description,
         lineOfBusiness: req.body.lineOfBusiness,
         address: req.body.address,
-        schedule: req.body.schedule
+        schedule: req.body.schedule,
+        ownerId: req.body.ownerId
     });
 
     try {
