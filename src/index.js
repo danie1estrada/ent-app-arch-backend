@@ -8,6 +8,10 @@ app.use(bodyParser.json());
 
 app.use('/api', require('./routes/router'));
 
+app.get('/', (req, res) => {
+    res.send('Application running...');
+});
+
 mongoose.connect(
     'mongodb+srv://root:admin123@enterprise-applications.x4yvh.mongodb.net/enterprise-applications-architecture?retryWrites=true&w=majority',
     { useNewUrlParser: true, useUnifiedTopology: true, useCreateIndex: true },
