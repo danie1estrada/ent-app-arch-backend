@@ -41,7 +41,7 @@ router.post('/login', (req, res) => {
         return res.json({
             accessToken,
             authenticatedUser,
-            businessId: business.id
+            business
         });
     });
 });
