@@ -3,6 +3,17 @@ const Product = require('../models/product.model');
 const express = require('express');
 const router = express.Router();
 
+router.get('/', async (req, res) => {
+    try {
+        res.json(await Product.find());
+    } catch (error) {
+        res.status(500).json({
+            success: false,
+            message: error
+        });
+    }
+});
+
 router.get('/search', async (req, res) => {
     try {
         res.json(await Product.find({ name: { $regex: `.*${req.params.query}.*` } }));
