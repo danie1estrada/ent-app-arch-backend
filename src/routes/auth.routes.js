@@ -1,3 +1,4 @@
+const Business = require('../models/business.model');
 const User = require('../models/user.model');
 const router = require('express').Router();
 const jwt = require('jsonwebtoken');
@@ -24,6 +25,7 @@ router.post('/login', (req, res) => {
             });
         }
 
+        const business = await Business.findOne({ ownerId: user.id });
         const authenticatedUser = {
             id: user.id,
             name: user.name,
@@ -38,7 +40,8 @@ router.post('/login', (req, res) => {
 
         return res.json({
             accessToken,
-            authenticatedUser
+            authenticatedUser,
+            businessId: business.id
         });
     });
 });
