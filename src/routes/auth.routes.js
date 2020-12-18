@@ -4,7 +4,7 @@ const router = require('express').Router();
 const jwt = require('jsonwebtoken');
 const bcrypt = require('bcrypt');
 
-router.post('/login', (req, res) => {
+router.post('/login', async (req, res) => {
     User.findOne({ email: req.body.email }).select('+password').exec((err, user) => {
         if (err) return res.status(500).json({
             success: false,
