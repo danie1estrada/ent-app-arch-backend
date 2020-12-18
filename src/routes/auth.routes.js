@@ -5,7 +5,7 @@ const jwt = require('jsonwebtoken');
 const bcrypt = require('bcrypt');
 
 router.post('/login', async (req, res) => {
-    User.findOne({ email: req.body.email }).select('+password').exec((err, user) => {
+    User.findOne({ email: req.body.email }).select('+password').exec(async (err, user) => {
         if (err) return res.status(500).json({
             success: false,
             message: err
